@@ -212,3 +212,5 @@ window.addEventListener("popstate", () => {
   console.log("popstate");
   console.log(history.state);
 });
+
+initializeApp();
