@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOM</title>
+    <!-- FONT AWESOME -->
+    <script
+      src="https://kit.fontawesome.com/77cc922ec4.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @layer components {
+        .background-image {
+          @apply bg-cover bg-center rounded-xl h-64;
+          background-image: url(https://images.unsplash.com/photo-1557858310-9052820906f7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="bg-blue-100 border-gray-500 border-b-1">
+      <div class="flex justify-between px-3 py-7">
+        <div class="flex items-center gap-4">
+          <div
+            class="flex justify-center items-center bg-blue-300 rounded-full size-14"
+          >
+            <i class="text-blue-700 text-2xl fa-solid fa-globe"></i>
+          </div>
+          <div class="tracking-wider">
+            <h2 class="font-semibold text-2xl">BOM INFORMATION DEMO</h2>
+            <p class="text-gray-500">
+              Đọc thông tin từ Browser Object Model(BOM)
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div
+            id="connection-indicator"
+            class="flex justify-center items-center bg-green-200 rounded-full size-5"
+          >
+            <div
+              id="connection-dot"
+              class="bg-green-600 rounded-full size-3"
+            ></div>
+          </div>
+          <p id="connection-status" class="font-semibold text-green-700">
+            Đang Online
+          </p>
+        </div>
+      </div>
+    </header>
+    <section id="home">
+      <div class="px-3 py-7">
+        <div class="flex gap-4">
+          <div
+            class="flex justify-center items-center bg-blue-300 rounded-full size-14"
+          >
+            <i class="text-blue-700 text-2xl fa-solid fa-desktop"></i>
+          </div>
+          <div class="tracking-wider">
+            <h2 id="device-info" class="pb-3 font-semibold text-2xl"></h2>
+          </div>
+        </div>
+
+        <div class="gap-4 grid grid-cols-4 mt-7">
+          <!-- Item 1 -->
+          <div class="flex gap-4 p-3 border border-gray-300 rounded-lg">
+            <div
+              class="flex justify-center items-center bg-blue-100/35 rounded-full size-12"
+            >
+              <i class="text-blue-600 text-2xl fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+              <h3 class="mb-1 font-semibold text-gray-500">
+                Vị Trí người dùng tọa độ
+              </h3>
+              <p id="current-location" class="font-semibold"></p>
+              <span id="address"></span>
+            </div>
+          </div>
+          <!-- Item 2 -->
+          <div class="flex gap-4 p-3 border border-gray-300 rounded-lg">
+            <div
+              class="flex justify-center items-center bg-blue-100/35 rounded-full size-12"
+            >
+              <i class="text-blue-600 text-2xl fa-brands fa-chrome"></i>
+            </div>
+            <div>
+              <h3 class="mb-1 font-semibold text-gray-500">Tên trình duyệt</h3>
+              <p id="browser" class="font-semibold"></p>
+              <p id="browser-version" class="text-gray-400"></p>
+            </div>
+          </div>
+          <!-- Item 3 -->
+          <div class="flex gap-4 p-3 border border-gray-300 rounded-lg">
+            <div
+              class="flex justify-center items-center bg-blue-100/35 rounded-full size-12"
+            >
+              <i class="text-blue-600 text-2xl fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+              <h3 class="mb-1 font-semibold text-gray-500">Tên hệ điều hành</h3>
+              <p id="operating-system" class="font-semibold"></p>
+            </div>
+          </div>
+          <!-- Item 4 -->
+          <div class="flex gap-4 p-3 border border-gray-300 rounded-lg">
+            <div
+              class="flex justify-center items-center bg-blue-100/35 rounded-full size-12"
+            >
+              <i class="text-blue-600 text-2xl fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+              <h3 class="mb-1 font-semibold text-gray-500">
+                Danh sách ngôn ngữ hiện tại
+              </h3>
+              <p id="language" class="font-semibold"></p>
+            </div>
+          </div>
+          <!-- Item 5 -->
+          <div class="flex gap-4 p-3 border border-gray-300 rounded-lg">
+            <div
+              class="flex justify-center items-center bg-blue-100/35 rounded-full size-12"
+            >
+              <i class="text-blue-600 text-2xl fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+              <h3 class="mb-1 font-semibold text-gray-500">
+                Kích thước màn hình
+              </h3>
+              <p id="screen-size" class="font-semibold"></p>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="flex gap-4 p-3 border border-gray-300 rounded-lg">
+            <div
+              class="flex justify-center items-center bg-blue-100/35 rounded-full size-12"
+            >
+              <i class="text-blue-600 text-2xl fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+              <h3 class="mb-1 font-semibold text-gray-500">Hướng màn hình</h3>
+              <p id="orientation" class="font-semibold"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-5">
+          <a
+            href="campaign.html?utm_source=thai_hoang_minh_trong&utm_campaign=campage_1"
+          >
+            <div class="flex justify-center items-center background-image">
+              <button
+                class="bg-white px-10 py-3 rounded-xl font-semibold cursor-pointer"
+              >
+                Xem Ngay
+              </button>
+            </div>
+          </a>
+        </div>
+
+        <div class="mt-8">
+          <button
+            class="bg-black px-7 py-6 rounded-2xl font-semibold text-white cursor-pointer"
+            id="fingerprinting-button"
+          >
+            FingerPriting Page
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="fingerprinting" class="hidden">
+      <p id="fingerprint-data"></p>
+
+      <button
+        id="return-button"
+        class="bg-white hover:bg-gray-100 shadow-sm hover:shadow-md mt-5 px-4 py-2 border border-gray-300 rounded-lg font-medium text-gray-700 text-sm active:scale-95 transition"
+      >
+        Return To Home
+      </button>
+    </section>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
